@@ -11,3 +11,4 @@ def urlExtract(url):
     img_div = soup.findAll("div",attrs={"class","_aagv"})
     for i in img_div:
         img_url = i.findAll("img", attrs="src")
+# example 
