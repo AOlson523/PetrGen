@@ -1,6 +1,5 @@
 import os
-from PIL import Image 
-import PIL 
+from PIL import Image  
 import json 
 
 
