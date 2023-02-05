@@ -10,7 +10,8 @@ utalized instaloader github repo: https://github.com/instaloader/instaloader
 utalized pokemon generator on Hugging Face: https://huggingface.co/spaces/sayakpaul/pokemon-sd-kerascv
 
 ## Inspiration
-We were inspired by the current model that we have access to, the pokemon generator by sayakpaul on Hugging Face. Current working model->(https://huggingface.co/spaces/sayakpaul/pokemon-sd-kerascv)
+We were inspired by the current model that we have access to, the pokemon generator by sayakpaul on Hugging Face. 
+Current working model->(https://huggingface.co/spaces/sayakpaul/pokemon-sd-kerascv)
 ## What it does
 Our model generates images based on user input, using deep neural networks.
 ## How we built it
