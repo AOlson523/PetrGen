@@ -8,7 +8,7 @@ def isJPG(fileName_caption, directory):
     for i, filename in enumerate(os.listdir(directory)):
         d = dict()
         if filename[-3:] == "jpg":
-            d["image"] = (directory+"/"+filename) # Image.open(directory+"/"+filename)
+            d["image"] = filename # Image.open(directory+"/"+filename)
             d["caption"] = ""
             if i + 2 < len(os.listdir(directory)) and os.listdir(directory)[i + 2][-3:] == "txt":
                 with open(directory+"/"+os.listdir(directory)[i + 2], 'r', encoding='utf8') as txtFile:
