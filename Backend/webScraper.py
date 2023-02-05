@@ -1,43 +1,26 @@
-import csv
-import requests 
-from bs4 import BeautifulSoup as bs
-import selenium.webdriver as webdriver
+# check if a file is a jpg 
+
+import os
+from PIL import Image 
+import PIL 
+
+def isJPG(fileName_caption, directory):
+    for i, filename in enumerate(os.listdir(directory)):
+        d = dict()
+        if filename[-3:] == "jpg":
+            d["image"] = Image.open(directory+"/"+filename)
+            d["caption"] = ""
+            if i + 2 < len(os.listdir(directory)) and os.listdir(directory)[i + 2][-3:] == "txt":
+                with open(directory+"/"+os.listdir(directory)[i + 2], 'r', encoding='utf8') as txtFile:
+                    d["caption"] = " ".join(txtFile.readlines()).strip("\n")
+            fileName_caption.append(d)
 
 
+def main():
+    fileName_caption = list()
+    path = "C:/Users/junya/Downloads/UCI/HackAtUCI/PetrGen/Backend/"
+    for filename in os.listdir(path):
+        if os.path.isdir(path +filename):
+            isJPG(fileName_caption, path+filename)
 
-
-# url = 'http://instagram.com/umnpics/'
-# driver = webdriver.Chrome()
-# driver.get(url)
-
-# soup = bs(driver.page_source, 'html.parser')
-
-# # x = soup.find('div', {'id':'mount_0_0_4R'})
-# # print(x)
-def scrapeFull(url):
-    page = requests.get(url) 
-    urlinput= input("Name html file:\n")
-    html_file = open(urlinput, "w", encoding = "utf-8")
-    # driver = webdriver.Chrome()
-    # driver.get(url)
-
-    html_file.write(page.text) # write html_text from website to file 
-    html_file.close()
-    return urlinput
-def urlExtract():
-    u= input("Give me instagram url:\n")
-    fullData = scrapeFull(u)
-    with open(fullData, encoding="utf8") as htmltext:
-        
-        soup = bs(htmltext, 'html.parser')
-
-# #         img_div = soup.findAll("div", {"class": "_aagu"})
-# #         print(img_div)
-#     # for i in img_div:
-#     #     img_url = i.find("img", attrs="src")
-
-#     # with open('petrs.csv', 'w') as csvfile:
-#     #     writer = csv.writer(csvfile)
-#     #     writer.writerow(ilist)
-    
-urlExtract()
+main()
